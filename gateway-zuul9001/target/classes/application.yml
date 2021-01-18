@@ -1,0 +1,19 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: gateway-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.com:6001/eureka/
+
+zuul:
+  routes:
+    USERS-PROVIDER: /provider/*
+    USERS-CONSUMER: /consumer/*
+  prefix: /gateway                       #ǰ׺
+  ignored-services: '*'                  #���÷���������(�������ܸ�����)
+  ignored-patterns: /**/map/**
